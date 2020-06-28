@@ -24,6 +24,10 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
+  int get itemCount {
+    return _items.length;
+  }
+
   void addItem(String productId, double price, String title) {
     if ( _items.containsKey(productId)) {
       //change the qunatity..
@@ -31,7 +35,7 @@ class Cart with ChangeNotifier {
         id :existingCartItem.id,
         title: existingCartItem.title,
         price: existingCartItem.price,
-        quantity: existingCartItem.quantity + 1,            
+        quantity: existingCartItem.quantity + 1,             
       ) );
     }
     else {
